@@ -1,0 +1,15 @@
+<pretty-config xmlns="http://ocpsoft.org/schema/rewrite-config-prettyfaces" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<url-mapping id="home">
+		<pattern value="/" />
+		<view-id value="home.xhtml" />
+	</url-mapping>
+	
+	<url-mapping id="register">
+		<pattern value="/register" />
+		<view-id value="register.xhtml" />
+	</url-mapping>	
+
+
+</pretty-config>

@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<ui:composition template="/_template.xhtml">
+	<ui:define name="content">
+		<link type="text/css" rel="stylesheet" href="css/global.css" />
+
+		<p:messages>
+			<p:autoUpdate />
+		</p:messages>
+
+		<div class="product card">
+			<h:form id="form">
+				<p:dataView var="visitante" value="#{visitanteBean.list()}" rows="12"
+					paginator="false"
+					paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
+					gridIcon="pi pi-th-large" listIcon="pi pi-bars" layout="list"
+					gridRowStyleClass="p-lg-6 p-xl-4" flex="true">
+
+					<p:dataViewListItem>
+						<div class="product-list-item">
+							<img src="#{request.contextPath}#{visitante.imagePath}" style="width: 200px" />
+							<div class="product-list-detail">
+								<div class="product-name">#{visitante.nome}</div>
+								<div class="product-description">#{visitante.dataNascimento}</div>
+								<div class="align-components">
+									<p:commandButton icon="pi pi-times" styleClass="rounded-button ui-button-danger ui-button-outlined" action="#{visitanteBean.remove(visitante)}" style="width: 20px; height: 20px; margin-top: 2px;" />								
+								</div>
+
+							</div>
+							<div class="product-list-action">
+								<p:commandButton type="button" value="Details"
+									icon="pi pi-search" />
+							</div>
+						</div>
+					</p:dataViewListItem>
+				</p:dataView>
+			</h:form>
+		</div>
+
+	</ui:define>
+</ui:composition>
+
+
+</html>
